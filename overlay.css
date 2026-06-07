@@ -1,0 +1,145 @@
+/* Claude Token Tracker - Overlay Styles */
+
+#ctt-overlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  user-select: none;
+}
+
+#ctt-inner {
+  background: #1a1a2e;
+  border: 1px solid #7c3aed;
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+  min-width: 220px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#ctt-inner.ctt-pulse {
+  animation: ctt-pulse-anim 1.5s infinite;
+}
+
+@keyframes ctt-pulse-anim {
+  0%, 100% { box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3); border-color: #ef4444; }
+  50%       { box-shadow: 0 8px 48px rgba(239, 68, 68, 0.7); border-color: #fca5a5; }
+}
+
+#ctt-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #2d1b69, #1e1b4b);
+  border-bottom: 1px solid #3730a3;
+}
+
+#ctt-icon { font-size: 14px; }
+#ctt-label { color: #c4b5fd; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; flex: 1; }
+
+#ctt-toggle {
+  background: none;
+  border: 1px solid #4c1d95;
+  color: #a78bfa;
+  border-radius: 4px;
+  width: 20px; height: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+#ctt-toggle:hover { background: #4c1d95; }
+
+#ctt-body { padding: 10px 12px 12px; }
+
+#ctt-bar-wrap {
+  background: #0f0f1a;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  border: 1px solid #1e1b4b;
+}
+
+#ctt-bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease, background 0.3s ease;
+  width: 0%;
+}
+
+#ctt-bar.ctt-ok     { background: linear-gradient(90deg, #10b981, #34d399); }
+#ctt-bar.ctt-warn   { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+#ctt-bar.ctt-danger { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+#ctt-stats {
+  text-align: center;
+  color: #e2e8f0;
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+#ctt-stats span { color: #c4b5fd; }
+#ctt-stats #ctt-pct { color: #94a3b8; margin-left: 4px; }
+
+#ctt-copy-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+#ctt-copy-btn:hover { background: linear-gradient(135deg, #6d28d9, #4338ca); transform: translateY(-1px); }
+#ctt-copy-btn:active { transform: translateY(0); }
+
+#ctt-copied-msg {
+  display: none;
+  text-align: center;
+  color: #10b981;
+  font-size: 11px;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* Alert Banner */
+#ctt-alert-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: linear-gradient(90deg, #7f1d1d, #991b1b);
+  color: white;
+  text-align: center;
+  padding: 10px 40px;
+  font-size: 14px;
+  z-index: 9999999;
+  border-bottom: 2px solid #ef4444;
+  animation: slide-down 0.3s ease;
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+#ctt-alert-banner button {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  border: none; color: white;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
